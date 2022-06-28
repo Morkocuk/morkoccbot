@@ -26,19 +26,9 @@ res = r.partition('\n')[0]
 proxy = {"http": f"http://{res}"}
 session = requests.session()
 
-session.proxies = proxy #UNCOMMENT IT AFTER PROXIES
-
-#random str GEN FOR EMAIL
-N = 10
-rnd = ''.join(random.choices(string.ascii_lowercase +
-                                string.digits, k = N))
 
 
-@dp.message_handler(commands=['start', 'help'], commands_prefix=PREFIX)
-async def helpstr(message: types.Message):
-    await message.answer_chat_action("typing")
-    await message.reply(
-        "Kart Checklemek İçin <code>/chk cc/mm/yy/cvv</code>\nREPO <a href='https://github.com/xbinner18/Mrbannker'>Here</a>"
+
     )
     
 
