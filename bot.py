@@ -21,7 +21,7 @@ bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
 
 ###USE YOUR ROTATING PROXY### NEED HQ PROXIES ELSE WONT WORK UPDATE THIS FILED
-r = requests.get('http://pubproxy.com/api/proxy?https=true').text
+r = requests.get('http://pubproxy.com/api/proxy').text
 res = r.partition('\n')[0]
 proxy = {"http": f"http://{res}"}
 session = requests.session()
